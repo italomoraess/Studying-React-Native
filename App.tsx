@@ -1,11 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, Button} from 'react-native';
 
 export default function App() {
+  const handleLoginButton = () => {
+    return alert('Login!!')
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text style={{color: 'FFF'}}>My First App</Text>
       <StatusBar style="auto" />
+      <Image
+        source={{uri: 'hhtps://www.google.com.br/google.jpg'}} 
+        style={{width: 300, height: 100}}      
+      />
+      <Button title='Login' onPress={() => {handleLoginButton()}} />
     </View>
   );
 }
@@ -13,7 +22,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#054F77',
     alignItems: 'center',
     justifyContent: 'center',
   },
