@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, Button, TextInput } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('');
   const [age, setAge] = useState(0);
 
   const handleLoginButton = () => {
-    setName('Italo Moraes');
     setAge(26);
   }
 
@@ -17,29 +16,26 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{uri: 'hhtps://www.google.com.br/google.jpg'}} 
-        style={{width: 300, height: 100}}      
-      />
+      
       <TextInput
-       style={{backgroundColor: '#EEE', padding: 10}}
-       placeholder='Digite seu nome:'
+        style={{ backgroundColor: '#EEE', padding: 10 }}
+        placeholder='Digite seu nome'
+        placeholderTextColor={'#F4793B'}
+        value={name}
+        onChangeText={text => setName(text)}
       />
 
-      { name != '' && <Text>Logado com {name} e tem {age} anos</Text> }
+      {name != '' && <Text>Logado com {name} e tem {age} anos</Text>}
 
-      { name != '' && <Button title='Limpar Tudo' onPress={handleClear} /> }
+      {name != '' && <Button title='Limpar Tudo' onPress={handleClear} />}
 
-      <Button title='Login' onPress={() => {handleLoginButton()}} />
+      <Button title='Cadastrar' onPress={() => { handleLoginButton() }} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#054F77',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });
