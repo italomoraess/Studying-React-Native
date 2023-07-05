@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { YourName } from './components/YourName';
+import { RegisterAnother } from './components/ RegisterAnother';
 
 export default function App() {
   const [name, setName] = useState('');
-  const [nameField, setNameField] = useState('');
-
-  const handleCadastroButton = () => {
-    setName(nameField);
-  }
 
   const handleClear = () => {
     setName('');
@@ -15,26 +12,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {name == '' &&
-      <>
-        <TextInput
-          style={{ backgroundColor: '#EEE', padding: 10 }}
-          placeholder='Digite seu nome'
-          placeholderTextColor={'#F4793B'}
-          value={nameField}
-          onChangeText={text => setNameField(text)}
-        />
-
-        <Button title='Cadastrar' onPress={() => { handleCadastroButton() }} /> 
-      </>
-      }
-
-      {name != '' && 
-        <>
-          <Text>Cadastrado com sucesso: {name}</Text>
-          <Button title='Cadastrar Outro' onPress={handleClear} />
-        </>
-      }
+      {name == '' && <YourName setName={setName}/>}
+      {name != '' && <RegisterAnother name={name} onClear={handleClear} />}
     </View>
   );
 }
