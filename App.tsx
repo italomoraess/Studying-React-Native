@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { YourName } from './components/YourName';
-import { RegisterAnother } from './components/ RegisterAnother';
+import { RegisterAnother } from './components/RegisterAnother';
 
 export default function App() {
   const [name, setName] = useState('');
