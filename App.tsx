@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { YourName } from './components/YourName';
 import { RegisterAnother } from './components/RegisterAnother';
+import { colors } from './theme';
 
 export default function App() {
   const [name, setName] = useState('');
@@ -20,6 +21,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.primaryLight,
     paddingTop: 50,
   },
 });
