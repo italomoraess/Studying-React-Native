@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableHighlight, TouchableOpacity, View, Text } from 'react-native';
 import { YourName } from './components/YourName';
 import { RegisterAnother } from './components/RegisterAnother';
 import { colors } from './theme';
@@ -11,10 +11,19 @@ export default function App() {
     setName('');
   }
 
+  const handleReq = async () => {
+    const filmes = await fetch('https://api.b7web.com.br/cinema/');
+    const filmesJson = await filmes.json();
+    console.log(filmesJson);
+  }
+
   return (
     <View style={styles.container}>
-      {name == '' && <YourName setName={setName}/>}
+      {name == '' && <YourName setName={setName} />}
       {name != '' && <RegisterAnother name={name} onClear={handleClear} />}
+      <TouchableOpacity onPress={handleReq}>
+        <Text>REQUISIÇÃO</Text>
+      </TouchableOpacity>
     </View>
   );
 }
