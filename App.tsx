@@ -14,7 +14,7 @@ export default function App() {
   const handleReq = async () => {
     const filmes = await fetch('https://api.b7web.com.br/cinema/');
     const filmesJson = await filmes.json();
-    console.log(filmesJson);
+    return filmesJson
   }
 
   return (
